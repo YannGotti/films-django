@@ -9,4 +9,4 @@ class MainPage(View):
         context = {
             #получить текущего пользователя
         }
-        return render(request, 'base.html')
+        return render(request, 'main/index.html')

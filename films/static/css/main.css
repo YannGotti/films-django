@@ -1,0 +1,29 @@
+.border{
+    border-radius: 1px;
+    border-color: black;
+}
+
+.font-text{
+    font-weight: 600;
+}
+
+.font-form{
+    font-weight: 500;
+}
+
+.text-weight-buttons{
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.link-decoration{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+
+body{
+    font-family: 'Oswald';
+}
+/* #CE1313 */

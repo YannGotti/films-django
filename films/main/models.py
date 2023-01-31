@@ -13,3 +13,16 @@ class User(models.Model):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
+
+
+class FilmsOnMainPage(models.Model):
+    film_id = models.IntegerField('ID Фильма')
+    category = models.CharField('Категория', max_length=30)
+
+    def __str__(self):
+        return f'{self.film_id}, {self.category}'
+
+    class Meta:
+        verbose_name = 'Фильм на главной странице'
+        verbose_name_plural = 'Фильмы на главной сранице'
+    
