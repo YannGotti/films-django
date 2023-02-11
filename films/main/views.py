@@ -10,3 +10,12 @@ class MainPage(View):
             #получить текущего пользователя
         }
         return render(request, 'main/index.html')
+
+class FilmPage(View):
+    def get(self, request, pk):
+
+        context = {
+            'film_id' : pk,
+        }
+        
+        return render(request, 'main/film.html', context=context)

@@ -23,6 +23,21 @@
 }
 
 
+.films-link{
+    transition: 0.15s;
+    text-decoration: none;
+}
+
+.films-link:hover {
+    transform: scale(1.05);
+}
+
+.card-text{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
 body{
     font-family: 'Oswald';
 }

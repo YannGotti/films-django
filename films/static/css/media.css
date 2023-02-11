@@ -1,0 +1,53 @@
+.film-player {
+    width: 800px;
+    height: 452px;
+}
+
+@media screen and (max-width: 1440px) {
+    .film-player {
+        width: 800px;
+        height: 452px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .film-player {
+        width: 800px;
+        height: 452px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .film-player {
+        width: 600px;
+        height: 352px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .film-player {
+        width: 560px;
+        height: 352px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .film-player {
+        width: 360px;
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .film-player {
+        width: 350px;
+        height: 252px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .film-player {
+        width: 270px;
+        height: 130px;
+    }
+}

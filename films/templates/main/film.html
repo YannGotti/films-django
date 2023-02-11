@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/media.css' %}">
+
+
+<section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center"  id="player">
+            <div class="col-10 col-md-10 col-sm-12 col-lg-8">
+                <iframe class="film-player" src="https://v1676142948.bazon.site/kp/{{ film_id }}" frameborder="0" scrolling="no" allowfullscreen="" referrerpolicy="origin">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    TOKEN = 'e599f1f6f2ecd77c39ab9f9b6aac1b28'
+
+    function generatePage(film){
+        console.log(film)   
+
+        info = film.info
+    }
+
+    function selectFilm(token) {
+        kp = '{{ film_id }}'
+
+        $.ajax({
+            url: "https://bazon.cc/api/search?token=" + token + "&kp=" + kp,
+            processData: false,
+            contentType: false,
+            type: 'GET',
+            success: function(data){
+                generatePage(data.results[0])         
+            }
+        });
+    }
+
+    selectFilm(TOKEN)
+
+
+</script>
+{% endblock %}
