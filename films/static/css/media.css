@@ -3,6 +3,7 @@
     height: 452px;
 }
 
+
 @media screen and (max-width: 1440px) {
     .film-player {
         width: 800px;
@@ -22,12 +23,20 @@
         width: 600px;
         height: 352px;
     }
+
+    .poster{
+        width: 220px;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .film-player {
         width: 560px;
         height: 352px;
+    }
+
+    .poster{
+        width: 250px;
     }
 }
 
@@ -36,6 +45,10 @@
         width: 360px;
         height: 220px;
     }
+
+    .poster{
+        width: 100px;
+    }
 }
 
 @media screen and (max-width: 425px) {
@@ -43,11 +56,19 @@
         width: 350px;
         height: 252px;
     }
+
+    .poster{
+        width: 150px;
+    }
 }
 
 @media screen and (max-width: 320px) {
     .film-player {
         width: 270px;
         height: 130px;
+    }
+
+    .poster{
+        width: 150px;
     }
 }

@@ -2,7 +2,24 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/film.css' %}">
 <link rel="stylesheet" href="{% static 'css/media.css' %}">
+
+
+
+<section class="mt-5 mb-5 text-light  ">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-6 col-lg-3" id="poster-div">
+                
+            </div>
+            <div class="col-8 col-lg-9" id="info_div">
+
+                
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section class="mt-5 mb-5">
@@ -22,9 +39,56 @@
     TOKEN = 'e599f1f6f2ecd77c39ab9f9b6aac1b28'
 
     function generatePage(film){
+        info = film.info
+        let poster_div = document.getElementById("poster-div");
+
+        let info_div = document.getElementById("info_div");
+        
+
+        poster_div.innerHTML += 
+        `
+            <img class="poster" src="`+ info.poster +`" alt="">
+        `
+
+        info_div.innerHTML +=
+        `
+            <div class="row d-flex justify-content-start">
+                <div class="col-12">
+                    <h3 class="mb-2">` + info.rus + `</h3>
+                    <p class="mb-2">` + info.description + `</p>
+
+                    <div class="row d-flex justify-content-center mt-3 mb-3">
+
+                        <div class="col-6">
+                            <p style="font-weight: 600;">Название: ` + info.orig +  `</p>
+                            <p style="font-weight: 600;">Год выхода: ` + info.year + `</p>
+                            <p style="font-weight: 600;">Режиссер: ` + info.director + `</p>
+                            <p style="font-weight: 600;">Страна: ` + info.country + `</p>
+                        </div>
+
+                        <div class="col-6">
+                            <p style="font-weight: 600;">Перевод: ` + film.translation +  `</p>
+                            <p style="font-weight: 600;">Качество: ` + film.max_qual + `</p>
+
+                            <div class="row d-flex justify-content-between">
+                                <div class="col-6">
+                                    <p style="font-weight: 600;">IMDB: ` + info.rating.rating_imdb +  ` / 10</p>
+                                </div>
+                                <div class="col-6">
+                                    <p style="font-weight: 600;">Кинопоиск: ` + info.rating.rating_kp +  ` / 10</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <p style="font-weight: 600;">Актеры: ` + info.actors +  `</p>
+                    <p style="font-weight: 600;">Жанр: ` + info.genre + `</p>
+                </div>
+            </div> 
+        `
         console.log(film)   
 
-        info = film.info
     }
 
     function selectFilm(token) {
