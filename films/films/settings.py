@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-gggpd!rc$)j2!+q26ikiu$18o8@r27un&-&f#kjprkeoenkq+s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bazafilm.fun', 'www.bazafilm.fun']
 
 
 # Application definition
@@ -65,8 +65,11 @@ WSGI_APPLICATION = 'films.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u1924472_default',
+        'USER': 'u1924472_default',
+        'PASSWORD': '3DCzmK20Ljxmv80q',
+        'HOST': 'localhost'
     }
 }
 
