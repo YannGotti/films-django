@@ -16,6 +16,21 @@
         width: 800px;
         height: 452px;
     }
+
+    .poster{
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .film-player {
+        width: 600px;
+        height: 352px;
+    }
+
+    .poster{
+        width: 220px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -29,9 +44,15 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+    .poster{
+        width: 250px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .film-player {
-        width: 560px;
+        width: 550px;
         height: 352px;
     }
 
@@ -47,7 +68,7 @@
     }
 
     .poster{
-        width: 100px;
+        width: 220px;
     }
 }
 
@@ -58,7 +79,7 @@
     }
 
     .poster{
-        width: 150px;
+        width: 180px;
     }
 }
 

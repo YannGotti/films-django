@@ -7,7 +7,7 @@ function addFilmPage(film) {
     let row = document.getElementById("film-list");
 
     row.innerHTML += 
-    `<a href=film/` + parseInt(film.kinopoisk_id) + `/ class="col-6 col-lg-2 animate__animated animate__fadeIn films-link">
+    `<a href=/film/` + parseInt(film.kinopoisk_id) + `/ class="col-6 col-lg-2 animate__animated animate__fadeIn films-link">
         <div class="card text-white bg-dark mb-3" style="max-width: 14rem; height: 23rem;">
             <img style="max-width: 14rem; max-height: 17rem;" src="`+ info.poster +`" class="card-img-top">
             <div class="card-body">
