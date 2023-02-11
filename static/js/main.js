@@ -4,7 +4,7 @@ function selectFilm() {
     kp = '2213'
 
     $.ajax({
-        url: "https://bazon.cc/api/search?token=" + token + "&kp=" + kp,
+        url: "https://bazon.cc/api/search?" + token + "&kp" + kp,
         processData: false,
         contentType: false,
         type: 'POST',
