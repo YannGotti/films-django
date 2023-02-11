@@ -9,4 +9,8 @@ class MainPage(View):
         context = {
             #получить текущего пользователя
         }
+
+        #asdasd
+
+        #sdfsdf
         return render(request, 'main/index.html')
