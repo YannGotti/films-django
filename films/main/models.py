@@ -1,9 +1,8 @@
 from django.db import models
 
 class User(models.Model):
+    email = models.EmailField('Email пользователя', max_length=254)
     username = models.CharField('Юзернейм пользователя', max_length=50)
-    first_name = models.CharField('Имя пользователя', max_length=50 , null=True)
-    last_name = models.CharField('Фамилия пользователя', max_length=50, null=True)
     password = models.CharField('Пароль пользователя (sha256)', max_length=300)
     date_register = models.DateTimeField('Дата регистрации', auto_now_add=True)
 

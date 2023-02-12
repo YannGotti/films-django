@@ -21,9 +21,6 @@ function selectFilm(page=1) {
             var data = JSON.parse(responce.data);
 
             array = data.data;
-
-            console.log(data)
-            
             row.innerHTML = ``;
 
             array.forEach((element) => {
@@ -35,8 +32,35 @@ function selectFilm(page=1) {
 }
 
 
-function pagination(){
+function pagination(page = 1){
     let pagination = document.getElementById("pagination");
+
+    if (page == 1){
+        pagination.innerHTML = 
+        `
+        <li class="page-item disabled"><a class="page-link" href="#">Прошлая</a></li>
+        <li class="page-item active"><a class="page-link" href="#" onclick="pagination(1)">1</a></li>
+        <li class="page-item "><a class="page-link" href="#" onclick="pagination(2)">2</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="pagination(3)">3</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="pagination(2)">Следующая</a></li>
+        `
+    }
+
+    else{
+        pagination.innerHTML = 
+        `
+        <li class="page-item"><a class="page-link" href="#" onclick="pagination(` + (page - 1) +  `)">Прошлая</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="pagination(` + (page - 1) +  `)">` + (page - 1) +  `</a></li>
+        <li class="page-item active"><a class="page-link" href="#" onclick="pagination(` + page +  `)">` + page + `</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="pagination(` + (page + 1) + `)">` + (page + 1) + `</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="pagination(` + (page + 1) + `)">Следующая</a></li>
+        `
+    }
+
+    selectFilm(page)
+
 }
+
+pagination();
 
 selectFilm();
