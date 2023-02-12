@@ -19,13 +19,23 @@ function addFilms(film){
     </a>`
 }
 
+time = 0
 
 function searchEvent(e){
     find_section.style.display = "block";
     
     title = e.target.value;
+
+    time += 0.1
+
+    if (time < 0.5) { return }
+    else ( time = 0 )
+
+    array_last_films = []
+
+
     $.ajax({
-        url: "api?method=search&title=" + title,
+        url: "\\api?method=search&title=" + title,
         type: "GET",
         success: function(responce){
             var data = JSON.parse(responce.data)
@@ -37,10 +47,16 @@ function searchEvent(e){
             }
 
             array = data.data
+
             find_films.innerHTML =  ``; 
-            array.forEach((element) => {
-                addFilms(element)
-            })
+
+
+            for (let element of array){
+                if (!array_last_films.includes(element.kp_id)){
+                    array_last_films.push(element.kp_id)
+                    addFilms(element)
+                }
+            }
             
             if (data == null){
                 find_films.innerHTML =  ``; 
