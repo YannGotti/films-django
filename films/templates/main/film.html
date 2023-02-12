@@ -35,7 +35,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-    function generatePage(film){
+    function generatePage(film, info){
         let poster_div = document.getElementById("poster-div");
 
         let info_div = document.getElementById("info_div");
@@ -54,16 +54,37 @@
 
                     <div class="row d-flex justify-content-center mt-3 mb-3">
 
-                        <div class="col-6">
+                        <div class="col-12 col-lg-4">
                             <p style="font-weight: 600;">Название: ` + film.orig_title +  `</p>
                             <p style="font-weight: 600;">Год выхода: ` + film.year + `</p>
                         </div>
 
-                        <div class="col-6">
-                            <p style="font-weight: 600;">Перевод: ` + film.translation +  `</p>
-                            <p style="font-weight: 600;">Качество: ` + film.quality + `</p>
+                        <div class="col-12 col-lg-4">
+                            <p style="font-weight: 600;">Перевод: ` + film.translations[0] +  `</p>
+                            <p style="font-weight: 600;">Качество: ` + info.quality + `</p>
+                        </div>
+
+                        <div class="col-12 col-lg-4">
+                            <p style="font-weight: 600;">IMDB: ` +  info.info.rating.rating_imdb +` / 10</p>
+                            <p style="font-weight: 600;">KP: ` +  info.info.rating.rating_kp +` / 10</p>
                         </div>
                     </div>
+
+                    <div row d-flex justify-content-center mt-3 mb-3>
+                        <div class="col-12 mt-3 mb-3">
+                            <p style="font-weight: 600;">Описание: ` + info.info.description +  `</p>
+                        </div>
+
+                        <div class="col-12 mt-3 mb-3">
+                            <p style="font-weight: 600;">Жанр: ` + info.info.genre +  `</p>
+                        </div>
+
+                        <div class="col-12 mt-3 mb-3">
+                            <p style="font-weight: 600;">Актеры: ` + info.info.actors +  `</p>
+                        </div>
+
+                    </div>
+
                 </div>
             </div> 
         `
@@ -78,7 +99,10 @@
             type: "GET",
             success: function(responce){
                 var data = JSON.parse(responce.data)
-                generatePage(data.data[0])  
+                var bazon = JSON.parse(responce.bazon)
+
+                console.log(bazon.results[0])
+                generatePage(data.data[0], bazon.results[0])  
             }
         });
     }

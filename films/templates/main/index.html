@@ -3,6 +3,35 @@
 
 {% block content %}
 
+<section>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-7 col-lg-3">
+                <nav class="text-light">
+                    <ul class="pagination" id="pagination">
+                        {% if page == None or page == 1%}
+                        <li class="page-item disabled"><a class="page-link" href="#">Прошлая</a></li>
+                        <li class="page-item active"><a class="page-link" href="#" onclick="selectFilm(1)">1</a></li>
+                        <li class="page-item "><a class="page-link" href="#" onclick="selectFilm(2)">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="selectFilm(3)">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="selectFilm(2)">Следующая</a></li>
+                        {% else %}
+
+                        <li class="page-item"><a class="page-link" href="#">Прошлая</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#"> 2 </a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Следующая</a></li>
+
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <section class="mt-5 mb-5">
     <div class="container">
         <div class="row d-flex justify-content-center"  id="film-list">

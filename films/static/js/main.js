@@ -1,6 +1,6 @@
-function addFilmPage(film) {
-    let row = document.getElementById("film-list");
+let row = document.getElementById("film-list");
 
+function addFilmPage(film) {
     row.innerHTML += 
     `<a href=/film/` + parseInt(film.kinopoisk_id) + `/ class="col-6 col-lg-2 animate__animated animate__fadeIn films-link">
         <div class="card text-white bg-dark mb-3" style="max-width: 14rem; height: 23rem;">
@@ -13,21 +13,30 @@ function addFilmPage(film) {
 
 }
 
-function selectFilm() {
+function selectFilm(page=1) {
     $.ajax({
-        url: "api?method=movies",
+        url: "api?method=movies&page=" + page,
         type: "GET",
         success: function(responce){
-            var data = JSON.parse(responce.data)
+            var data = JSON.parse(responce.data);
 
-            array = data.data
+            array = data.data;
+
+            console.log(data)
+            
+            row.innerHTML = ``;
 
             array.forEach((element) => {
-                addFilmPage(element)
+                addFilmPage(element);
             })
 
         }
     });
 }
 
-selectFilm()
+
+function pagination(){
+    let pagination = document.getElementById("pagination");
+}
+
+selectFilm();
