@@ -1,31 +1,30 @@
-TOKEN = 'e599f1f6f2ecd77c39ab9f9b6aac1b28'
-
-
 function addFilmPage(film) {
-    info = film.info
+
+
+    console.log(film)
 
     let row = document.getElementById("film-list");
 
     row.innerHTML += 
     `<a href=/film/` + parseInt(film.kinopoisk_id) + `/ class="col-6 col-lg-2 animate__animated animate__fadeIn films-link">
         <div class="card text-white bg-dark mb-3" style="max-width: 14rem; height: 23rem;">
-            <img style="max-width: 14rem; max-height: 17rem;" src="`+ info.poster +`" class="card-img-top">
+            <img style="max-width: 14rem; max-height: 17rem;" src="https://st.kp.yandex.net/images/film_iphone/iphone360_` + parseInt(film.kinopoisk_id) +  `.jpg" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title card-text">` + info.rus +  `</h5>
+                <h5 class="card-title card-text">` + film.ru_title +  `</h5>
             </div>
         </div>
     </a>`
 
 }
 
-function selectFilm(token) {
+function selectFilm() {
     $.ajax({
-        url: "https://bazon.cc/api/json?token=" + token + "&type=film&page=1&cat=аниме",
-        processData: false,
-        contentType: false,
-        type: 'GET',
-        success: function(data){
-            array = data.results
+        url: "api?method=movies",
+        type: "GET",
+        success: function(responce){
+            var data = JSON.parse(responce.data)
+
+            array = data.data
 
             array.forEach((element) => {
                 addFilmPage(element)
@@ -35,4 +34,4 @@ function selectFilm(token) {
     });
 }
 
-selectFilm(TOKEN)
+selectFilm()
