@@ -1,8 +1,4 @@
 function addFilmPage(film) {
-
-
-    console.log(film)
-
     let row = document.getElementById("film-list");
 
     row.innerHTML += 

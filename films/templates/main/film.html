@@ -26,8 +26,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center"  id="player">
             <div class="col-10 col-md-10 col-sm-12 col-lg-8">
-                <iframe class="film-player" src="https://v1676142948.bazon.site/kp/{{ film_id }}" frameborder="0" scrolling="no" allowfullscreen="" referrerpolicy="origin">
-                </iframe>
+                <iframe class="film-player" src="https://18.annacdn.cc/PW5hgiILUEba?kp_id={{ film_id }}"frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -36,10 +35,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-    TOKEN = 'e599f1f6f2ecd77c39ab9f9b6aac1b28'
-
     function generatePage(film){
-        info = film.info
         let poster_div = document.getElementById("poster-div");
 
         let info_div = document.getElementById("info_div");
@@ -47,65 +43,48 @@
 
         poster_div.innerHTML += 
         `
-            <img class="poster" src="`+ info.poster +`" alt="">
+            <img class="poster" src="https://st.kp.yandex.net/images/film_iphone/iphone360_` + parseInt(film.kp_id) +  `.jpg" alt="">
         `
 
         info_div.innerHTML +=
         `
             <div class="row d-flex justify-content-start">
                 <div class="col-12">
-                    <h3 class="mb-2">` + info.rus + `</h3>
-                    <p class="mb-2">` + info.description + `</p>
+                    <h3 class="mb-2">` + film.title + `</h3>
 
                     <div class="row d-flex justify-content-center mt-3 mb-3">
 
                         <div class="col-6">
-                            <p style="font-weight: 600;">Название: ` + info.orig +  `</p>
-                            <p style="font-weight: 600;">Год выхода: ` + info.year + `</p>
-                            <p style="font-weight: 600;">Режиссер: ` + info.director + `</p>
-                            <p style="font-weight: 600;">Страна: ` + info.country + `</p>
+                            <p style="font-weight: 600;">Название: ` + film.orig_title +  `</p>
+                            <p style="font-weight: 600;">Год выхода: ` + film.year + `</p>
                         </div>
 
                         <div class="col-6">
                             <p style="font-weight: 600;">Перевод: ` + film.translation +  `</p>
-                            <p style="font-weight: 600;">Качество: ` + film.max_qual + `</p>
-
-                            <div class="row d-flex justify-content-between">
-                                <div class="col-6">
-                                    <p style="font-weight: 600;">IMDB: ` + info.rating.rating_imdb +  ` / 10</p>
-                                </div>
-                                <div class="col-6">
-                                    <p style="font-weight: 600;">Кинопоиск: ` + info.rating.rating_kp +  ` / 10</p>
-                                </div>
-                            </div>
-
+                            <p style="font-weight: 600;">Качество: ` + film.quality + `</p>
                         </div>
                     </div>
-
-                    <p style="font-weight: 600;">Актеры: ` + info.actors +  `</p>
-                    <p style="font-weight: 600;">Жанр: ` + info.genre + `</p>
                 </div>
             </div> 
         `
-        console.log(film)   
 
     }
 
-    function selectFilm(token) {
-        kp = '{{ film_id }}'
+    function selectFilm() {
+        kp_id = '{{ film_id }}'
 
         $.ajax({
-            url: "https://bazon.cc/api/search?token=" + token + "&kp=" + kp,
-            processData: false,
-            contentType: false,
-            type: 'GET',
-            success: function(data){
-                generatePage(data.results[0])         
+            url: "\\api?method=short&kp_id=" + kp_id,
+            type: "GET",
+            success: function(responce){
+                var data = JSON.parse(responce.data)
+                console.log(data.data[0])   
+                generatePage(data.data[0])  
             }
         });
     }
 
-    selectFilm(TOKEN)
+    selectFilm()
 
 
 </script>
