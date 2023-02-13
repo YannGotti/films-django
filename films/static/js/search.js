@@ -1,4 +1,4 @@
-const input = document.querySelector('input');
+const input = document.querySelector('#form_search');
 
 input.addEventListener('input', searchEvent);
 

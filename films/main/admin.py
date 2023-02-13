@@ -1,9 +1,5 @@
 from django.contrib import admin
-from .models import User, FilmsOnMainPage
-
-@admin.register(User)
-class UserAdminPanel(admin.ModelAdmin):
-    list_display = ('username', 'date_register')
+from .models import FilmsOnMainPage
 
 @admin.register(FilmsOnMainPage)
 class FilmsOnMainPageAdminPanel(admin.ModelAdmin):

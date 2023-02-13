@@ -1,3 +1,12 @@
+function authUser(username, password){
+	let login_form = document.forms.login_form;
+	let username_form = login_form.elements.username;
+	let password_form = login_form.elements.password;
+
+	username_form.value = username;
+	password_form.value = password;
+}
+
 function registerForm(){
 
     let field_validation = document.getElementById("validation");
@@ -7,7 +16,6 @@ function registerForm(){
     let submit_password = form.elements.submit_password;
     let username = form.elements.username;
     let email = form.elements.email;
-    let save_session = form.save_session;
 
     if (password.value != submit_password.value){
         field_validation.innerText = `Пароли не совпадают`;
@@ -36,12 +44,10 @@ function registerForm(){
 
     field_validation.innerText =``;
 
-    password = sha256(password.value);
-
-    var formElement = document.querySelector("#register_form");
+    sha256_password = sha256(password.value);
 
     $.ajax({
-        url: "\\register/?&email=" + email.value + '&username=' + username.value + '&password=' + password,
+        url: "\\auth/reg/?&email=" + email.value + '&username=' + username.value + '&password=' + password.value,
         processData: false,
         contentType: false,
         type: 'GET',
@@ -51,13 +57,9 @@ function registerForm(){
                 field_validation.innerText =`Пользователь с таким именем уже существует`;
                 return;
             }
-
-            if (save_session.value == "on"){
-                document.cookie = "auth="+ password +"; path=/;"
-                document.cookie = "session=true; path=/;"
-            }
-            
-            location.reload()
+			
+            openFormLogin();
+            authUser(username.value, password.value);
         }
     }); 
 }
