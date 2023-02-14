@@ -39,7 +39,7 @@ class Api(View):
 
 
         if (data.get("method") == 'movies'):
-            res = requests.get('https://videocdn.tv/api/movies?api_token=' + TOKEN + '&limit=50&page=' + str(page))
+            res = requests.get('https://videocdn.tv/api/movies?api_token=' + TOKEN + '&limit=100&page=' + str(page))
 
         if (data.get("method") == 'short'):
             res = requests.get('https://videocdn.tv/api/short?api_token=' + TOKEN + '&kinopoisk_id=' + data.get("kp_id"))
