@@ -34,7 +34,8 @@
 
 .card-text{
     font-weight: 600;
-    font-size: 13px;
+    font-size: 16px;
+    text-shadow: 2px 2px 2px #000;
 }
 
 

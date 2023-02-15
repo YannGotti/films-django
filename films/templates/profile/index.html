@@ -38,12 +38,24 @@
                         <button class="btn btn-danger text-weight-buttons" type="button" 
                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Сохранить</button>
                 </form>
+
+
+                
             </div>
             
             <!--div> СОздать избранные</div-->
 
+            
             <div class="col-6 col-lg-6">
-
+                <form method="post" action="{% url 'set_image' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="formFile" class="form-label">Изменить фото профиля</label>
+                    <div class="mb-3 input-group">
+                        <input type="file" class="form-control" name="image" accept=".jpg , .png"  id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <input type="hidden" name="id_user" value="{{ user.id }}" />
+                        <button class="btn btn-danger" type="submit" id="inputGroupFileAddon04">Изменить</button>
+                    </div>
+                </form>
             </div>
         </div>
 

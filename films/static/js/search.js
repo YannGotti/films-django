@@ -9,11 +9,11 @@ let find_films = document.getElementById("find-films");
 
 function addFilms(film){
     find_films.innerHTML += 
-    `<a href=/film/` + parseInt(film.kp_id) + `/ class="col-3 col-lg-1 animate__animated animate__fadeIn films-link">
-        <div class="card text-white bg-dark mb-3" style="width: 6rem; height: 15rem;">
-            <img style="max-width: 6rem; max-height: 15rem;" src="https://st.kp.yandex.net/images/film_iphone/iphone360_` + parseInt(film.kp_id) +  `.jpg" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title card-text">` + film.title + `</h5>
+    `<a href=/film/` + parseInt(film.kp_id) + `/ class="col-6 col-lg-2 animate__animated animate__fadeIn films-link">
+        <div class="card text-white bg-dark mb-3" style="width: 13rem">
+            <img style="width: 13rem;" src="https://st.kp.yandex.net/images/film_iphone/iphone360_` + parseInt(film.kp_id) +  `.jpg" class="card-img-top">
+            <div class="card-img-overlay">
+                <h5 class="card-title card-text">` + film.title +  `</h5>
             </div>
         </div>
     </a>`
